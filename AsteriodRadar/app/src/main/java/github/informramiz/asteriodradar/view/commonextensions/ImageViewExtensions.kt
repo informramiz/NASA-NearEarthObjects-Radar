@@ -20,6 +20,8 @@ fun ImageView.setAsteroidStatusImage(isHazardous: Boolean) {
 fun ImageView.setAsteroidStatusIcon(isHazardous: Boolean) {
     val resId = if (isHazardous) R.drawable.ic_status_potentially_hazardous else R.drawable.ic_status_normal
     setImageResource(resId)
+    val descriptionResId = if (isHazardous) R.string.potentially_hazardous_asteroid_image else R.string.not_hazardous_asteroid_image
+    contentDescription = context.getText(descriptionResId)
 }
 
 @BindingAdapter("url")
