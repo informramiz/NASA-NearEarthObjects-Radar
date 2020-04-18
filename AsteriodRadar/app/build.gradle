@@ -76,8 +76,12 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     //work manager
     implementation "androidx.work:work-runtime-ktx:2.3.4"
+
     //Retrofit 2
-    implementation "com.squareup.retrofit2:retrofit:2.8.1"
+    def retrofit_version = "2.8.1"
+    implementation "com.squareup.retrofit2:retrofit:${retrofit_version}"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+    implementation "com.squareup.moshi:moshi-kotlin:1.9.2"
 
     //Glide for image downloading
     def glide_version = "4.11.0"
