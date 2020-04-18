@@ -2,6 +2,7 @@ package github.informramiz.asteriodradar.model.database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import github.informramiz.asteriodradar.model.domain.Asteroid
 
 /**
  * Created by Ramiz Raja on 18/04/2020
@@ -19,3 +20,8 @@ data class AsteroidEntity(
     val isPotentiallyHazardous: Boolean,
     val epochDate: Long
 )
+
+fun AsteroidEntity.toAsteroid(): Asteroid {
+    return Asteroid(id, codename, closeApproachDate, absoluteMagnitude, estimatedDiameter,
+        relativeVelocity, distanceFromEarth, isPotentiallyHazardous)
+}

@@ -13,7 +13,7 @@ abstract class AsteroidDao {
     abstract suspend fun insert(vararg asteroids: AsteroidEntity)
 
     @Query("SELECT * FROM asteroid_table WHERE epochDate <= :currentTime")
-    abstract suspend fun getAsteroids(currentTime: Long = System.currentTimeMillis()): Flow<List<AsteroidEntity>>
+    abstract fun getAsteroids(currentTime: Long = System.currentTimeMillis()): Flow<List<AsteroidEntity>>
 
     @Transaction
     @Query("DELETE FROM asteroid_table")
