@@ -37,10 +37,6 @@ class OverviewFragment : BaseFragment() {
                 viewModel.onNavigationToDetailComplete()
             }
         })
-
-        viewModel.asteroids.observe(viewLifecycleOwner, Observer { asteroids ->
-            viewBinding.recyclerViewAsteroids.setAsteroidsList(asteroids)
-        })
     }
 
 }
