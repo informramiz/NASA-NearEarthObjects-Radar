@@ -3,7 +3,7 @@ package github.informramiz.asteriodradar
 import android.app.Application
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
-import github.informramiz.asteriodradar.dependencyinjection.AppInjector
+import github.informramiz.asteriodradar.dependencyinjection.injector.AppInjector
 import timber.log.Timber
 import javax.inject.Inject
 
