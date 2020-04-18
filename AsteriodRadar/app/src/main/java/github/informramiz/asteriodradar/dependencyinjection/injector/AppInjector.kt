@@ -1,4 +1,4 @@
-package github.informramiz.asteriodradar.dependencyinjection
+package github.informramiz.asteriodradar.dependencyinjection.injector
 
 import android.app.Activity
 import android.content.Context
@@ -10,7 +10,6 @@ import dagger.android.AndroidInjection
 import dagger.android.support.AndroidSupportInjection
 import github.informramiz.asteriodradar.AsteroidRadarApplication
 import github.informramiz.asteriodradar.dependencyinjection.components.DaggerAppComponent
-import github.informramiz.asteriodradar.dependencyinjection.injector.SimpleActivityLifecycleListener
 
 object AppInjector {
     fun init(application: AsteroidRadarApplication) {
@@ -20,7 +19,9 @@ object AppInjector {
         application.registerActivityLifecycleCallbacks(object: SimpleActivityLifecycleListener() {
             override fun onActivityCreated(activity: Activity, bundle: Bundle?) {
                 AndroidInjection.inject(activity)
-                handleFragmentInjection(activity)
+                handleFragmentInjection(
+                    activity
+                )
                 super.onActivityCreated(activity, bundle)
             }
         })
