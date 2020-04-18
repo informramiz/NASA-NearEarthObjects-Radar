@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import github.informramiz.asteriodradar.R
 import github.informramiz.asteriodradar.databinding.DetailFragmentBinding
+import github.informramiz.asteriodradar.model.domain.Asteroid
 import github.informramiz.asteriodradar.view.base.BaseFragment
 
 class DetailFragment : BaseFragment() {
@@ -28,6 +29,9 @@ class DetailFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewBinding.lifecycleOwner = viewLifecycleOwner
+        viewBinding.asteroid = Asteroid(1, "codeName", "12-12-2020",
+            0.8, 2.0, 2.0,
+            2.0, true)
     }
 
 }
