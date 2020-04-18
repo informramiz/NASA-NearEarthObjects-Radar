@@ -32,9 +32,7 @@ class DetailFragment : BaseFragment() {
         super.onActivityCreated(savedInstanceState)
         viewBinding.lifecycleOwner = viewLifecycleOwner
         viewBinding.viewModel = viewModel
-        viewBinding.asteroid = Asteroid(1, "codeName", "12-12-2020",
-            0.8, 2.0, 2.0,
-            2.0, true)
+        viewBinding.asteroid = DetailFragmentArgs.fromBundle(requireArguments()).asteroid
 
         viewModel.showAstronomicalHelpAlertEvent.observe(viewLifecycleOwner, Observer { shouldShow ->
             if (shouldShow) {

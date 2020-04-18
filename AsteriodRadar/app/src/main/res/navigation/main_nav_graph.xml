@@ -17,5 +17,9 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="github.informramiz.asteriodradar.view.detail.DetailFragment"
-        android:label="Detail" />
+        android:label="Detail" >
+        <argument
+            android:name="asteroid"
+            app:argType="github.informramiz.asteriodradar.model.respository.domain.Asteroid" />
+    </fragment>
 </navigation>

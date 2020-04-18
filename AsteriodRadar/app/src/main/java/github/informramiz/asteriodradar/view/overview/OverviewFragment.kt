@@ -33,7 +33,7 @@ class OverviewFragment : BaseFragment() {
 
         viewModel.navigateToDetailEvent.observe(viewLifecycleOwner, Observer { asteroid ->
             if (asteroid != null) {
-                findNavController().navigate(OverviewFragmentDirections.actionOverviewFragmentToDetailFragment())
+                findNavController().navigate(OverviewFragmentDirections.actionOverviewFragmentToDetailFragment(asteroid))
                 viewModel.onNavigationToDetailComplete()
             }
         })
