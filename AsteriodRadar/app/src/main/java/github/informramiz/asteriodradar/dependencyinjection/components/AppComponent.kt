@@ -3,6 +3,8 @@ package github.informramiz.asteriodradar.dependencyinjection.components
 import android.content.Context
 import dagger.BindsInstance
 import dagger.Component
+import github.informramiz.asteriodradar.view.MainActivity
+import github.informramiz.asteriodradar.view.base.BaseActivity
 import javax.inject.Singleton
 
 /**
@@ -23,4 +25,9 @@ interface AppComponent {
         // method at compile time
         fun create(@BindsInstance context: Context): AppComponent
     }
+
+    //this lets dagger know that the parameter type wants its fields annotated with @Inject to
+    //be injected by Dagger so that Dagger can verify and link up everything at compile time
+    fun inject(baseActivity: BaseActivity)
+    fun inject(mainActivity: MainActivity)
 }
