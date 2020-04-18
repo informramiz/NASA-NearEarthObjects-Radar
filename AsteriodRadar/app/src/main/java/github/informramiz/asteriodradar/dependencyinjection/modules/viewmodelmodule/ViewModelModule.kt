@@ -7,6 +7,7 @@ import dagger.Module
 import dagger.multibindings.IntoMap
 import github.informramiz.asteriodradar.dependencyinjection.modules.viewmodelmodule.ViewModelFactory
 import github.informramiz.asteriodradar.dependencyinjection.modules.viewmodelmodule.ViewModelKey
+import github.informramiz.asteriodradar.view.detail.DetailViewModel
 import github.informramiz.asteriodradar.view.overview.OverviewViewModel
 
 /**
@@ -24,5 +25,10 @@ interface ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(OverviewViewModel::class)
-    fun bind(overviewViewModel: OverviewViewModel): ViewModel
+    fun bindOverviewModel(overviewViewModel: OverviewViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DetailViewModel::class)
+    fun bindDetailViewModel(detailViewModel: DetailViewModel): ViewModel
 }

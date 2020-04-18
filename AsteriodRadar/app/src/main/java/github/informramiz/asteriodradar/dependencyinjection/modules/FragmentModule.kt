@@ -2,6 +2,7 @@ package github.informramiz.asteriodradar.dependencyinjection.modules
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
+import github.informramiz.asteriodradar.view.detail.DetailFragment
 import github.informramiz.asteriodradar.view.overview.OverviewFragment
 
 /**
@@ -10,5 +11,8 @@ import github.informramiz.asteriodradar.view.overview.OverviewFragment
 @Module
 interface FragmentModule {
     @ContributesAndroidInjector
-    fun androidInjector(): OverviewFragment
+    fun contributeOverviewFragment(): OverviewFragment
+
+    @ContributesAndroidInjector
+    fun contributeDetailFragment(): DetailFragment
 }
