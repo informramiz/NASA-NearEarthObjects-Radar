@@ -6,7 +6,7 @@
     <data>
         <variable
             name="asteroid"
-            type="github.informramiz.asteriodradar.model.domain.Asteroid" />
+            type="github.informramiz.asteriodradar.model.respository.domain.Asteroid" />
 
         <variable
             name="viewModel"

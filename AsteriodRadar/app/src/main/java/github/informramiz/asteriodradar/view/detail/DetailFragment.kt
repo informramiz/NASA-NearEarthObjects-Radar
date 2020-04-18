@@ -8,7 +8,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import github.informramiz.asteriodradar.R
 import github.informramiz.asteriodradar.databinding.DetailFragmentBinding
-import github.informramiz.asteriodradar.model.domain.Asteroid
+import github.informramiz.asteriodradar.model.respository.domain.Asteroid
 import github.informramiz.asteriodradar.view.base.BaseFragment
 
 class DetailFragment : BaseFragment() {

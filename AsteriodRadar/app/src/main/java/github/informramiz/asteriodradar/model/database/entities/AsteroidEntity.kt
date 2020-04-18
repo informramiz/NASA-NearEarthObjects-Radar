@@ -2,7 +2,7 @@ package github.informramiz.asteriodradar.model.database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import github.informramiz.asteriodradar.model.domain.Asteroid
+import github.informramiz.asteriodradar.model.respository.domain.Asteroid
 
 /**
  * Created by Ramiz Raja on 18/04/2020
