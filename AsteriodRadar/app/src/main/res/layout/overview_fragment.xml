@@ -23,7 +23,6 @@
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
             android:contentDescription="@string/nasa_picture_of_day_content_description_format"
-            android:onClick="@{() -> viewModel.onItemClick()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

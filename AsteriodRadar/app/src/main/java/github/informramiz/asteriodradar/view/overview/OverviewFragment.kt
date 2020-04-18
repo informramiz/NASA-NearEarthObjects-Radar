@@ -27,15 +27,19 @@ class OverviewFragment : BaseFragment() {
         viewBinding.lifecycleOwner = viewLifecycleOwner
         viewBinding.viewModel = viewModel
 
-        viewModel.navigateToDetailEvent.observe(viewLifecycleOwner, Observer { shouldNavigate ->
-            if (shouldNavigate) {
+        viewBinding.recyclerViewAsteroids.adapter = AsteroidRecyclerAdapter(AsteroidClickListener { asteroid ->
+            viewModel.onItemClick(asteroid)
+        })
+
+        viewModel.navigateToDetailEvent.observe(viewLifecycleOwner, Observer { asteroid ->
+            if (asteroid != null) {
                 findNavController().navigate(OverviewFragmentDirections.actionOverviewFragmentToDetailFragment())
                 viewModel.onNavigationToDetailComplete()
             }
         })
 
         viewModel.asteroids.observe(viewLifecycleOwner, Observer { asteroids ->
-            Timber.d("asteroids count: ${asteroids.size}")
+            viewBinding.recyclerViewAsteroids.setAsteroidsList(asteroids)
         })
     }
 

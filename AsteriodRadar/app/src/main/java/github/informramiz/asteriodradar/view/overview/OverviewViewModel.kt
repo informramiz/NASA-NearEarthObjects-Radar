@@ -9,8 +9,8 @@ import javax.inject.Singleton
 
 @Singleton
 class OverviewViewModel @Inject constructor(private val asteroidsRepository: AsteroidRepository): ViewModel() {
-    private val _navigateToDetailsEvent = MutableLiveData<Boolean>()
-    val navigateToDetailEvent: LiveData<Boolean>
+    private val _navigateToDetailsEvent = MutableLiveData<Asteroid>()
+    val navigateToDetailEvent: LiveData<Asteroid>
         get() = _navigateToDetailsEvent
 
     val asteroids: LiveData<List<Asteroid>> = asteroidsRepository.getAsteroids().asLiveData(context = viewModelScope.coroutineContext)
@@ -21,11 +21,11 @@ class OverviewViewModel @Inject constructor(private val asteroidsRepository: Ast
         }
     }
 
-    fun onItemClick() {
-        _navigateToDetailsEvent.value = true
+    fun onItemClick(asteroid: Asteroid) {
+        _navigateToDetailsEvent.value = asteroid
     }
 
     fun onNavigationToDetailComplete() {
-        _navigateToDetailsEvent.value = false
+        _navigateToDetailsEvent.value = null
     }
 }
