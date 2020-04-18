@@ -7,6 +7,6 @@ import com.squareup.moshi.Json
  */
 data class Diameter(
     @Json(name = "estimated_diameter_min")
-    private val  minEstimatedDiameter: Double,
+    val  minEstimatedDiameter: Double,
     @Json(name = "estimated_diameter_max")
-    private val  maxEstimatedDiameter: Double)
+    val  maxEstimatedDiameter: Double)

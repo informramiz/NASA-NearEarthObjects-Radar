@@ -1,6 +1,7 @@
 package github.informramiz.asteriodradar.model.respository
 
 import github.informramiz.asteriodradar.model.api.NasaApi
+import github.informramiz.asteriodradar.model.api.responses.toEntityAsteroids
 import github.informramiz.asteriodradar.model.database.dao.AsteroidDao
 import github.informramiz.asteriodradar.model.database.entities.toAsteroid
 import github.informramiz.asteriodradar.model.respository.domain.Asteroid
@@ -26,6 +27,7 @@ class AsteroidRepository @Inject constructor(
                 val response = nasaApi.getAsteroids()
                 if (response.isSuccessful) {
                     Timber.d("Fetch request successful")
+                    asteroidDoa.insert(*(response.body()!!.toEntityAsteroids().toTypedArray()))
                 } else {
                     Timber.d("Fetch request failed")
                 }

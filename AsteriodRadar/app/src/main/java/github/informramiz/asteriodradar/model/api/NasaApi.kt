@@ -15,5 +15,5 @@ interface NasaApi {
     @GET("feed")
     suspend fun getAsteroids(@Query("start_date") startDate: String? = null,
                              @Query("end_date") endDate: String? = null,
-                             @Query("api_key") apiKey: String = API_KEY): Response<List<Asteroids>>
+                             @Query("api_key") apiKey: String = API_KEY): Response<Asteroids>
 }

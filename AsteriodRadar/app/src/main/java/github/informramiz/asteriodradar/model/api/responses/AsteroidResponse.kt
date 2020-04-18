@@ -1,6 +1,7 @@
 package github.informramiz.asteriodradar.model.api.responses
 
 import com.squareup.moshi.Json
+import github.informramiz.asteriodradar.model.database.entities.AsteroidEntity
 
 /**
  * Created by Ramiz Raja on 18/04/2020
@@ -21,3 +22,23 @@ data class AsteroidResponse(
     @Json(name = "close_approach_data")
     val closeApproachData: List<CloseApproachData> = emptyList()
 )
+
+fun AsteroidResponse.toAsteroidEntity(): AsteroidEntity {
+//    val id: Long,
+//    val codename: String,
+//    val closeApproachDate: String,
+//    val absoluteMagnitude: Double,
+//    val estimatedDiameter: Double,
+//    val relativeVelocity: Double,
+//    val distanceFromEarth: Double,
+//    val isPotentiallyHazardous: Boolean,
+//    val epochDate: Long
+    val distanceFromEarth = closeApproachData.first().missDistance.astronomical.toDouble()
+    val epochDate = closeApproachData.first().epochDateCloseApproach
+    val closeApproachDate = closeApproachData.first().closeApproachDate
+    val estimatedDiameterDouble = estimatedDiameter.kilometers.maxEstimatedDiameter
+    val relativeVelocity = closeApproachData.first().relativeVelocity.kmPerSecond.toDouble()
+    return AsteroidEntity(id.toLong(), name, closeApproachDate, absoluteMagnitude,
+        estimatedDiameterDouble, relativeVelocity, distanceFromEarth,
+        isPotentiallyHazardousAsteroid, epochDate)
+}
