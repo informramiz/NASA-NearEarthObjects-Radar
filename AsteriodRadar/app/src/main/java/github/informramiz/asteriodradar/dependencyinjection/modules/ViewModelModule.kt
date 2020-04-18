@@ -1,10 +1,11 @@
 package github.informramiz.asteriodradar.dependencyinjection.modules
 
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import dagger.Binds
 import dagger.Module
-import dagger.multibindings.ClassKey
 import dagger.multibindings.IntoMap
+import github.informramiz.asteriodradar.view.overview.OverviewViewModel
 
 /**
  * Created by Ramiz Raja on 18/04/2020
@@ -18,4 +19,8 @@ interface ViewModelModule {
     fun bindViewModelFactory(factor: ViewModelFactory): ViewModelProvider.Factory
 
     //because ViewModelFactory expects a map of viewModels so let's build that
+    @Binds
+    @IntoMap
+    @ViewModelKey(OverviewViewModel::class)
+    fun bind(overviewViewModel: OverviewViewModel): ViewModel
 }

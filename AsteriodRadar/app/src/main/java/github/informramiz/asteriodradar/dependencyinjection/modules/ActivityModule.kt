@@ -7,7 +7,7 @@ import github.informramiz.asteriodradar.view.MainActivity
 /**
  * Created by Ramiz Raja on 18/04/2020
  */
-@Module
+@Module(includes = [ViewModelModule::class])
 abstract class ActivityModule {
     @ContributesAndroidInjector
     abstract fun activityInjector(): MainActivity
