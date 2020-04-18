@@ -1,6 +1,6 @@
 package github.informramiz.asteriodradar.model.respository
 
-import github.informramiz.asteriodradar.model.api.NasaApi
+import github.informramiz.asteriodradar.model.api.NasaNWsApi
 import github.informramiz.asteriodradar.model.api.responses.toEntityAsteroids
 import github.informramiz.asteriodradar.model.database.dao.AsteroidDao
 import github.informramiz.asteriodradar.model.database.entities.toAsteroid
@@ -18,13 +18,13 @@ import javax.inject.Inject
  */
 class AsteroidRepository @Inject constructor(
     private val asteroidDoa: AsteroidDao,
-    private val nasaApi: NasaApi
+    private val nasaNWsApi: NasaNWsApi
 ) {
 
     suspend fun refreshAsteroids() {
         withContext(Dispatchers.IO) {
             try {
-                val response = nasaApi.getAsteroids()
+                val response = nasaNWsApi.getAsteroids()
                 if (response.isSuccessful) {
                     Timber.d("Fetch request successful")
                     asteroidDoa.insert(*(response.body()!!.toEntityAsteroids().toTypedArray()))

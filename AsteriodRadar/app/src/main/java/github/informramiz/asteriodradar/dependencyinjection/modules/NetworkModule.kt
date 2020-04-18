@@ -5,7 +5,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import github.informramiz.asteriodradar.BuildConfig
-import github.informramiz.asteriodradar.model.api.NasaApi
+import github.informramiz.asteriodradar.model.api.NasaNWsApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -41,7 +41,7 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideNasaApi(retrofit: Retrofit): NasaApi {
-        return retrofit.create(NasaApi::class.java)
+    fun provideNasaApi(retrofit: Retrofit): NasaNWsApi {
+        return retrofit.create(NasaNWsApi::class.java)
     }
 }
