@@ -12,6 +12,8 @@ import github.informramiz.asteriodradar.R
 fun ImageView.setAsteroidStatusImage(isHazardous: Boolean) {
     val resId = if (isHazardous) R.drawable.asteroid_hazardous else R.drawable.asteroid_safe
     setImageResource(resId)
+    val descriptionResId = if (isHazardous) R.string.potentially_hazardous_asteroid_image else R.string.not_hazardous_asteroid_image
+    contentDescription = context.getText(descriptionResId)
 }
 
 @BindingAdapter("asteroidStatusIcon")

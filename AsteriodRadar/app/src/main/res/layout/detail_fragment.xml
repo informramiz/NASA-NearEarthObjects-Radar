@@ -7,6 +7,10 @@
         <variable
             name="asteroid"
             type="github.informramiz.asteriodradar.model.domain.Asteroid" />
+
+        <variable
+            name="viewModel"
+            type="github.informramiz.asteriodradar.view.detail.DetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,9 +20,11 @@
         tools:context=".view.detail.DetailFragment">
 
         <ImageView
-            android:id="@+id/activity_main_image_of_the_day"
+            android:id="@+id/imageView_asteroid_hazardous_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:accessibilityLiveRegion="polite"
+            android:contentDescription="@string/not_hazardous_asteroid_image"
             android:adjustViewBounds="true"
             app:asteroidStatusImage="@{asteroid.potentiallyHazardous}"
             app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +38,7 @@
             android:padding="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/activity_main_image_of_the_day">
+            app:layout_constraintTop_toBottomOf="@+id/imageView_asteroid_hazardous_image">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -94,6 +100,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="16dp"
+                        android:contentDescription="@string/astronomical_unit_explanation_button"
+                        android:onClick="@{() -> viewModel.onHelpClick()}"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
                         app:srcCompat="@drawable/ic_help_circle" />
 
                 </LinearLayout>
