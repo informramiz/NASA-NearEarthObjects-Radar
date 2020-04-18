@@ -78,4 +78,8 @@ dependencies {
     implementation "androidx.work:work-runtime-ktx:2.3.4"
     //Retrofit 2
     implementation "com.squareup.retrofit2:retrofit:2.8.1"
+    //Glide for image downloading
+    def glide_version = "4.11.0"
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
 }
