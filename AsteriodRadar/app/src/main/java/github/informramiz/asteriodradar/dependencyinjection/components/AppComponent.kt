@@ -8,6 +8,7 @@ import dagger.android.support.AndroidSupportInjectionModule
 import github.informramiz.asteriodradar.AsteroidRadarApplication
 import github.informramiz.asteriodradar.dependencyinjection.modules.ActivityModule
 import github.informramiz.asteriodradar.dependencyinjection.modules.AppModule
+import github.informramiz.asteriodradar.dependencyinjection.modules.NetworkModule
 import github.informramiz.asteriodradar.view.MainActivity
 import github.informramiz.asteriodradar.view.base.BaseActivity
 import javax.inject.Singleton
@@ -23,7 +24,8 @@ import javax.inject.Singleton
     AndroidInjectionModule::class,
     AndroidSupportInjectionModule::class,
     AppModule::class,
-    ActivityModule::class
+    ActivityModule::class,
+    NetworkModule::class
 ])
 interface AppComponent {
     // we need context for most of the dependencies and we do that
