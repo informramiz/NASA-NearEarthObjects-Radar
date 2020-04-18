@@ -16,4 +16,8 @@ class MainActivity : BaseActivity() {
         setContentView(viewBinding.root)
         setupActionBarWithNavController(findNavController(R.id.nav_host_fragment))
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return findNavController(R.id.nav_host_fragment).navigateUp() || super.onSupportNavigateUp()
+    }
 }
