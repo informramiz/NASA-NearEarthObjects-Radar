@@ -1,21 +1,19 @@
 package github.informramiz.asteriodradar.view
 
-import android.content.Context
 import android.os.Bundle
-import android.widget.Toast
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasAndroidInjector
-import github.informramiz.asteriodradar.AsteroidRadarApplication
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupActionBarWithNavController
 import github.informramiz.asteriodradar.R
+import github.informramiz.asteriodradar.databinding.ActivityMainBinding
 import github.informramiz.asteriodradar.view.base.BaseActivity
-import javax.inject.Inject
 
 class MainActivity : BaseActivity() {
-    @Inject
-    lateinit var myContext: Context
+    private val viewBinding: ActivityMainBinding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        Toast.makeText(myContext, "This is injected applicatoin context!", Toast.LENGTH_SHORT).show()
+        setContentView(viewBinding.root)
+        setupActionBarWithNavController(findNavController(R.id.nav_host_fragment))
     }
 }

@@ -4,5 +4,5 @@ import androidx.lifecycle.ViewModel
 import javax.inject.Inject
 
 class OverviewViewModel @Inject constructor(): ViewModel() {
-    
+
 }

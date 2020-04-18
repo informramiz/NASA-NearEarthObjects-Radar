@@ -1,10 +1,12 @@
-package github.informramiz.asteriodradar.dependencyinjection.modules
+package github.informramiz.asteriodradar.dependencyinjection.modules.viewmodelmodule
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
+import github.informramiz.asteriodradar.dependencyinjection.modules.viewmodelmodule.ViewModelFactory
+import github.informramiz.asteriodradar.dependencyinjection.modules.viewmodelmodule.ViewModelKey
 import github.informramiz.asteriodradar.view.overview.OverviewViewModel
 
 /**

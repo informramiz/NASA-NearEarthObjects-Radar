@@ -7,12 +7,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
+import github.informramiz.asteriodradar.dependencyinjection.injector.Injectable
 import javax.inject.Inject
 
 /**
  * Created by Ramiz Raja on 18/04/2020
  */
-open class BaseFragment: Fragment(), HasAndroidInjector {
+open class BaseFragment: Fragment(), HasAndroidInjector, Injectable {
     lateinit var androidInjector: DispatchingAndroidInjector<Any>
     override fun androidInjector() = androidInjector
 

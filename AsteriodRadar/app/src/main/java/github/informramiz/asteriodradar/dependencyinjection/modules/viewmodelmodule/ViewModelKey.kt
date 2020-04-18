@@ -1,4 +1,4 @@
-package github.informramiz.asteriodradar.dependencyinjection.modules
+package github.informramiz.asteriodradar.dependencyinjection.modules.viewmodelmodule
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

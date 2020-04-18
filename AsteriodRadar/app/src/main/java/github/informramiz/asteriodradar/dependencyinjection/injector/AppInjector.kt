@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import dagger.android.AndroidInjection
+import dagger.android.HasAndroidInjector
 import dagger.android.support.AndroidSupportInjection
 import github.informramiz.asteriodradar.AsteroidRadarApplication
 import github.informramiz.asteriodradar.dependencyinjection.components.DaggerAppComponent
@@ -32,7 +33,9 @@ object AppInjector {
 
         activity.supportFragmentManager.registerFragmentLifecycleCallbacks(object : FragmentManager.FragmentLifecycleCallbacks() {
             override fun onFragmentAttached(fm: FragmentManager, f: Fragment, context: Context) {
-                AndroidSupportInjection.inject(f)
+                if (f is Injectable || f is HasAndroidInjector) {
+                    AndroidSupportInjection.inject(f)
+                }
                 super.onFragmentAttached(fm, f, context)
             }
         }, true)

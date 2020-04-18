@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import dagger.android.AndroidInjection
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
+import github.informramiz.asteriodradar.dependencyinjection.injector.Injectable
 import javax.inject.Inject
 
 /**
