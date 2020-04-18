@@ -78,8 +78,14 @@ dependencies {
     implementation "androidx.work:work-runtime-ktx:2.3.4"
     //Retrofit 2
     implementation "com.squareup.retrofit2:retrofit:2.8.1"
+
     //Glide for image downloading
     def glide_version = "4.11.0"
     implementation "com.github.bumptech.glide:glide:$glide_version"
     kapt "com.github.bumptech.glide:compiler:$glide_version"
+
+    //Dagger for dependency injection
+    def dagger_version = "2.27"
+    implementation "com.google.dagger:dagger:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
 }
