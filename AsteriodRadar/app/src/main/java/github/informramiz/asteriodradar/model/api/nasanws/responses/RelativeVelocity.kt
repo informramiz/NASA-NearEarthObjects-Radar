@@ -1,4 +1,4 @@
-package github.informramiz.asteriodradar.model.api.responses
+package github.informramiz.asteriodradar.model.api.nasanws.responses
 
 import com.squareup.moshi.Json
 

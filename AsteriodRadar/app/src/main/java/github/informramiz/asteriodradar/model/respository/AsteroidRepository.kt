@@ -1,10 +1,14 @@
 package github.informramiz.asteriodradar.model.respository
 
-import github.informramiz.asteriodradar.model.api.NasaNWsApi
-import github.informramiz.asteriodradar.model.api.responses.toEntityAsteroids
+import github.informramiz.asteriodradar.model.api.nasaimageoftheday.NasaImageOfTheDayApi
+import github.informramiz.asteriodradar.model.api.nasaimageoftheday.resposes.toImageOfTheDay
+import github.informramiz.asteriodradar.model.api.nasanws.NasaNWsApi
+import github.informramiz.asteriodradar.model.api.nasanws.responses.toEntityAsteroids
 import github.informramiz.asteriodradar.model.database.dao.AsteroidDao
 import github.informramiz.asteriodradar.model.database.entities.toAsteroid
 import github.informramiz.asteriodradar.model.respository.domain.Asteroid
+import github.informramiz.asteriodradar.model.respository.domain.ImageOfTheDay
+import github.informramiz.asteriodradar.model.respository.utils.Response
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -18,7 +22,8 @@ import javax.inject.Inject
  */
 class AsteroidRepository @Inject constructor(
     private val asteroidDoa: AsteroidDao,
-    private val nasaNWsApi: NasaNWsApi
+    private val nasaNWsApi: NasaNWsApi,
+    private val imageOfTheDayApi: NasaImageOfTheDayApi
 ) {
 
     suspend fun refreshAsteroids() {
@@ -33,6 +38,18 @@ class AsteroidRepository @Inject constructor(
                 }
             } catch (exception: Exception) {
                 Timber.d(exception)
+            }
+        }
+    }
+
+    suspend fun getImageOfTheDay(): Response<ImageOfTheDay> {
+        return withContext(Dispatchers.IO) {
+            try {
+                val response = imageOfTheDayApi.getImageOfTheDay()
+                Response.SuccessResponse(response.body()!!.toImageOfTheDay())
+            } catch (exception: Exception) {
+                Timber.d(exception)
+                Response.ErrorResponse<ImageOfTheDay>(exception.localizedMessage)
             }
         }
     }

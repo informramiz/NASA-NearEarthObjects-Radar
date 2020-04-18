@@ -5,7 +5,8 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import github.informramiz.asteriodradar.BuildConfig
-import github.informramiz.asteriodradar.model.api.NasaNWsApi
+import github.informramiz.asteriodradar.model.api.nasaimageoftheday.NasaImageOfTheDayApi
+import github.informramiz.asteriodradar.model.api.nasanws.NasaNWsApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -43,5 +44,14 @@ class NetworkModule {
     @Provides
     fun provideNasaApi(retrofit: Retrofit): NasaNWsApi {
         return retrofit.create(NasaNWsApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideNasaImageOfTheDayApi(retrofit: Retrofit): NasaImageOfTheDayApi {
+        return retrofit.newBuilder()
+            .baseUrl("https://api.nasa.gov/planetary/")
+            .build()
+            .create(NasaImageOfTheDayApi::class.java)
     }
 }

@@ -1,4 +1,4 @@
-package github.informramiz.asteriodradar.model.api.responses
+package github.informramiz.asteriodradar.model.api.nasanws.responses
 
 import com.squareup.moshi.Json
 import github.informramiz.asteriodradar.model.database.entities.AsteroidEntity
@@ -24,15 +24,6 @@ data class AsteroidResponse(
 )
 
 fun AsteroidResponse.toAsteroidEntity(): AsteroidEntity {
-//    val id: Long,
-//    val codename: String,
-//    val closeApproachDate: String,
-//    val absoluteMagnitude: Double,
-//    val estimatedDiameter: Double,
-//    val relativeVelocity: Double,
-//    val distanceFromEarth: Double,
-//    val isPotentiallyHazardous: Boolean,
-//    val epochDate: Long
     val distanceFromEarth = closeApproachData.first().missDistance.astronomical.toDouble()
     val epochDate = closeApproachData.first().epochDateCloseApproach
     val closeApproachDate = closeApproachData.first().closeApproachDate

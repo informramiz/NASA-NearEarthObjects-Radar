@@ -1,8 +1,7 @@
-package github.informramiz.asteriodradar.model.api.responses
+package github.informramiz.asteriodradar.model.api.nasanws.responses
 
 import com.squareup.moshi.Json
 import github.informramiz.asteriodradar.model.database.entities.AsteroidEntity
-import github.informramiz.asteriodradar.model.respository.domain.Asteroid
 
 /**
  * Created by Ramiz Raja on 18/04/2020
