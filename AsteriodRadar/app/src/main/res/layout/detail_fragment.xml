@@ -104,7 +104,8 @@
                         android:onClick="@{() -> viewModel.onHelpClick()}"
                         android:clickable="true"
                         android:focusable="true"
-                        android:foreground="?attr/selectableItemBackground"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:background="@drawable/rippled_background"
                         app:srcCompat="@drawable/ic_help_circle" />
 
                 </LinearLayout>
