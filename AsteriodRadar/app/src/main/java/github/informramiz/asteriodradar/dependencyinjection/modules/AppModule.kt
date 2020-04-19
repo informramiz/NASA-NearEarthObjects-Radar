@@ -1,6 +1,7 @@
 package github.informramiz.asteriodradar.dependencyinjection.modules
 
 import android.content.Context
+import android.util.Log
 import androidx.work.Configuration
 import androidx.work.WorkManager
 import androidx.work.WorkerFactory
@@ -29,8 +30,16 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun provideWorkManager(context: Context, workerFactory: WorkerFactory): WorkManager {
-        WorkManager.initialize(context, Configuration.Builder().setWorkerFactory(workerFactory).build())
+    fun provideWorkManagerConfiguration(workerFactory: WorkerFactory): Configuration {
+        return Configuration.Builder()
+            .setWorkerFactory(workerFactory)
+            .setMinimumLoggingLevel(Log.VERBOSE).build()
+    }
+
+    @Singleton
+    @Provides
+    fun provideWorkManager(context: Context, configuration: Configuration): WorkManager {
+        WorkManager.initialize(context, configuration)
         return WorkManager.getInstance(context)
     }
 }
