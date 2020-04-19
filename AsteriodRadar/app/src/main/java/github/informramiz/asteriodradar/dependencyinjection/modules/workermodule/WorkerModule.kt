@@ -12,7 +12,7 @@ import javax.inject.Singleton
  *
  * Module to contain dependencies for all workers
  */
-@Module
+@Module(includes = [AssistedWorkerModule::class])
 interface WorkerModule {
     @Singleton
     @Binds

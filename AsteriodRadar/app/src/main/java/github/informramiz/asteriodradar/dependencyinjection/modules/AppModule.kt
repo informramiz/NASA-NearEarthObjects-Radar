@@ -7,7 +7,6 @@ import androidx.work.WorkManager
 import androidx.work.WorkerFactory
 import dagger.Module
 import dagger.Provides
-import github.informramiz.asteriodradar.dependencyinjection.modules.workermodule.CustomWorkerFactory
 import github.informramiz.asteriodradar.dependencyinjection.modules.workermodule.WorkerModule
 import github.informramiz.asteriodradar.model.database.AsteroidsDatabase
 import github.informramiz.asteriodradar.model.database.dao.AsteroidDao

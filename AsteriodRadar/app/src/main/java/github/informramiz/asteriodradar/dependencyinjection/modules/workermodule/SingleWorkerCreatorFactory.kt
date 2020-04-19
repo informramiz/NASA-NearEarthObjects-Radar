@@ -9,5 +9,5 @@ import androidx.work.WorkerParameters
  * This is a common interface for all individual worker factories
  */
 interface SingleWorkerCreatorFactory {
-    fun create(context: Context, workerParameters: WorkerParameters): ListenableWorker
+    fun create(context: Context, params: WorkerParameters): ListenableWorker
 }
