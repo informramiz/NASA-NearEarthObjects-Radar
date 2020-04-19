@@ -1,6 +1,8 @@
 package github.informramiz.asteriodradar.view.overview
 
 import android.widget.ImageView
+import android.widget.ProgressBar
+import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import github.informramiz.asteriodradar.model.respository.domain.Asteroid
@@ -24,4 +26,9 @@ fun ImageView.setImageOfTheDay(imageOfTheDayResponse: Response<ImageOfTheDay>) {
             setUrl(imageOfTheDayResponse.data!!.url)
         }
     }
+}
+
+@BindingAdapter("isVisible")
+fun ProgressBar.isVisible(asteroids: List<Asteroid>?) {
+    isVisible = asteroids == null || asteroids.isEmpty()
 }
