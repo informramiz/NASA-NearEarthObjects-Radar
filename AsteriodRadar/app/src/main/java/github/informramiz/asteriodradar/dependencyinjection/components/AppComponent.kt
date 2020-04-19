@@ -9,8 +9,6 @@ import github.informramiz.asteriodradar.AsteroidRadarApplication
 import github.informramiz.asteriodradar.dependencyinjection.modules.ActivityModule
 import github.informramiz.asteriodradar.dependencyinjection.modules.AppModule
 import github.informramiz.asteriodradar.dependencyinjection.modules.NetworkModule
-import github.informramiz.asteriodradar.view.MainActivity
-import github.informramiz.asteriodradar.view.base.BaseActivity
 import javax.inject.Singleton
 
 /**
