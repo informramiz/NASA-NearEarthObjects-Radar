@@ -16,14 +16,17 @@ import javax.inject.Singleton
 abstract class AsteroidsDatabase protected constructor(): RoomDatabase() {
     abstract val asteroidDao: AsteroidDao
     companion object {
+        @Volatile
         private lateinit var INSTANCE: AsteroidsDatabase
         fun getInstance(context: Context): AsteroidsDatabase {
-            if (!this::INSTANCE.isInitialized) {
-                INSTANCE = Room.databaseBuilder(context.applicationContext, AsteroidsDatabase::class.java, "asteroidsDatabase")
-                    .fallbackToDestructiveMigration()
-                    .build()
+            synchronized(this) {
+                if (!this::INSTANCE.isInitialized) {
+                    INSTANCE = Room.databaseBuilder(context.applicationContext, AsteroidsDatabase::class.java, "asteroidsDatabase")
+                        .fallbackToDestructiveMigration()
+                        .build()
+                }
+                return INSTANCE
             }
-            return INSTANCE
         }
     }
 }
