@@ -15,7 +15,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/background_selector"
+        android:background="@color/app_background"
+        android:foreground="?attr/selectableItemBackground"
         android:focusable="true"
         android:clickable="true"
         android:onClick="@{() -> clickListener.onClick(asteroid)}">
