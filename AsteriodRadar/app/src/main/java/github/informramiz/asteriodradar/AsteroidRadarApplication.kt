@@ -28,7 +28,6 @@ class AsteroidRadarApplication: Application(), HasAndroidInjector {
         AppInjector.init(this)
         super.onCreate()
         Timber.plant(Timber.DebugTree())
-        workManager.cancelAllWork()
         delayInit()
     }
 
